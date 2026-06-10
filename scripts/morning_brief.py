@@ -27,13 +27,17 @@ def beijing_today():
 def fetch_rss():
     items = []
     for url in RSS_FEEDS:
-        feed = feedparser.parse(url)
-        for entry in feed.entries[:8]:
-            items.append({
-                "title": entry.get("title", ""),
-                "link": entry.get("link", ""),
-                "summary": entry.get("summary", "")[:600],
-            })
+        try:
+            feed = feedparser.parse(url)
+            for entry in feed.entries[:8]:
+                items.append({
+                    "title": entry.get("title", ""),
+                    "link": entry.get("link", ""),
+                    "summary": entry.get("summary", "")[:600],
+                })
+        except Exception as exc:
+            print(f"Warning: failed to fetch RSS feed {url}: {exc}")
+            continue
     return items
 
 def fetch_serenity():
