@@ -16,9 +16,9 @@ client = OpenAI(
 )
 
 RSS_FEEDS = [
-    "https://www.reutersagency.com/feed/?best-topics=business-finance&post_type=best",
-    "https://www.scmp.com/rss/92/feed",
-    "https://www.nasdaq.com/feed/rssoutbound?category=Markets",
+    "https://www.reutersagency.com/feed/?best-topics=business-finance&post_type=best", # reuters，国际商业/金融新闻
+    "https://www.scmp.com/rss/92/feed",                                                # SCMP，南华早报，偏中国、亚洲、地缘和商业
+    "https://www.nasdaq.com/feed/rssoutbound?category=Markets",                        # Nasdaq Markets，美股市场新闻
 ]
 
 def beijing_today():
